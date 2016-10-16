@@ -26,7 +26,7 @@ var host = (process.env.VCAP_APP_HOST || 'localhost');
 // start server on the specified port and binding host
 
 app.get('/home', function(req, res){
-	res.send('testing message');
+	res.render('mytable', {});
 	
 });
 //start server on the specified port and binding hostnew
