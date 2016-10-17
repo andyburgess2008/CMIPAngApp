@@ -99,6 +99,10 @@ function ensureAuthenticated(req, res, next) {
  app.get('/', ensureAuthenticated, function(req, res){
        res.render('mytable', {});
  });
+ 
+ 
+       
+      
  //second add line
  app.get('/auth/sso/callback',function(req,res,next) {               
              var redirect_url = req.session.originalUrl;                
