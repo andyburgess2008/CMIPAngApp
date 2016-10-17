@@ -107,12 +107,13 @@ function ensureAuthenticated(req, res, next) {
                      failureRedirect: '/failure',                        
           })(req,res,next);
         });
- app.get('/hello', ensureAuthenticated, function(req, res, next) {
+ app.get('/hello', ensureAuthenticated, function(req, res) {
              //res.send('Hello, '+ req.user['id'] + '!'); 
-             res.render('mytest', {
-             	user: req.user
-             });
-             next();
+             res.redirect('/login');
+             //res.render('mytest', {
+             	//user: req.user
+             //});
+             //next();
    });
 
  //
