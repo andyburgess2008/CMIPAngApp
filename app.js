@@ -107,6 +107,8 @@ function ensureAuthenticated(req, res, next) {
                      failureRedirect: '/failure',                        
           })(req,res,next);
         });
+ app.get('/hello', ensureAuthenticated, function(req, res) {
+             res.send('Hello, '+ req.user['id'] + '!'); });
 
  //
  app.get('/failure', function(req, res) { 
