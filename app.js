@@ -110,11 +110,14 @@ function ensureAuthenticated(req, res, next) {
  app.get('/hello', ensureAuthenticated, function(req, res, next) {
              //res.send('Hello, '+ req.user['id'] + '!'); 
              //res.redirect('/login');
-             res.render('login', { user : req.user });
+             res.render('/login', {
+             	user : req.user 
+             	});
+             	next();
             /* res.render('mytest', {
              	user: req.user
              });
-             next();*/
+            // next();*/
    });
 
  //
