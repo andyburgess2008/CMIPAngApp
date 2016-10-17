@@ -8,7 +8,7 @@
     <% if (!user) { %>
 	<p>Welcome! Please <a href="/singup">log in</a>.</p>
 <% } else { %>
-	<p>Hello, <%= user %>. View your <a href="/profile">profile</a>.</p>
+	<p>Hello, <%= user.name %>. View your <a href="/profile">profile</a>.</p>
 <% } %>
     
     </div>
