@@ -1,0 +1,9 @@
+<html>
+<head>Hello user</head>
+<body>
+    <div class="container">
+      <%=user.id %>
+    </div>
+</body>
+
+</html>
