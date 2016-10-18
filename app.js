@@ -111,17 +111,17 @@ function ensureAuthenticated(req, res, next) {
                      failureRedirect: '/failure',                        
           })(req,res,next);
         });
+        
+        
  app.get('/hello', ensureAuthenticated, function(req, res, next) {
              //res.send('Hello, '+ req.user['id'] + '!'); 
              //res.redirect('/login');
+             console.log(req.user);
              res.render('mytest', {
              	user : req.user 
              	});
              	next();
-            /* res.render('mytest', {
-             	user: req.user
-             });
-            // next();*/
+            
    });
 
  //
