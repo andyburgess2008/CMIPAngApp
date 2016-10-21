@@ -140,6 +140,12 @@ app.get('/logout', function(req, res){
               res.send("you have logout successfully");
                 
       });
+//
+app.get(‘logout’, function(req, res) {
+          req.logout();
+          res.redirect('https://cmipsso-ald1016-y10rz7i00p-ck11.iam.ibmcloud.com/idaas/mtfim/sps/idaas/logout' + issuer_id +
+                  '/idaas/mtfim/sps/idaas/logout');
+      });
 //start server on the specified port and binding hostnew
 app.listen(appEnv.port, host, function() {
   // print a message when the server starts listening
