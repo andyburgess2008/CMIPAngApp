@@ -134,10 +134,10 @@ app.get('/home', function(req, res){
 	
 });
 
-app.get('/logout', function(req, res){  
-                         
-      req.logout();
-                 
+app.get('/logout', function(req, res){
+	
+     console.log(req.logout());
+              res.send("you have logout successfully");
                  
       });
 //start server on the specified port and binding hostnew
