@@ -137,8 +137,7 @@ app.get('/home', function(req, res){
 app.get('/logout', function(req, res) {
           //req.logout();
           console.log("*****",req.logout());
-          res.redirect('https://' + issuer_id +
-                  '/idaas/mtfim/sps/idaas/logout');
+          res.redirect('https://' + issuer_id +'/idaas/logout');
       });
 
 //app.get('/logout', function(req, res){
