@@ -137,7 +137,7 @@ app.get('/home', function(req, res){
 app.get('/logout', function(req, res) {
           //req.logout();
           console.log("*****",req.logout());
-          res.redirect('https://' + issuer_id +'/idaas/logout');
+          res.redirect('https://' + issuer_id +'/idaas/logout/logout_success,html');
       });
 
 //app.get('/logout', function(req, res){
@@ -147,14 +147,14 @@ app.get('/logout', function(req, res) {
                 
       });*/
 //
-/*
+
 app.get('/logout', function(req, res) {
         //  req.logout();
          console.log("*****",req.logout());
           res.redirect('https://cmipsso-ald1016-y10rz7i00p-ck11.iam.ibmcloud.com/idaas/mtfim/sps/idaas/logout' + issuer_id +
-                  '/idaas/mtfim/sps/idaas/logout');
+                  '/idaas/mtfim/sps/idaas/logout/logout_success');
       });
-      */
+      
 //start server on the specified port and binding hostnew
 app.listen(appEnv.port, host, function() {
   // print a message when the server starts listening
