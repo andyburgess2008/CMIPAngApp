@@ -57,7 +57,7 @@ passport.deserializeUser(function(obj, done) {
 // this application. For details of its content, please refer to
 // the document or sample of each service.  
 var services = JSON.parse(process.env.VCAP_SERVICES || "{}");
-console.log("***",services.SingleSignOn);
+//console.log("***",services.SingleSignOn);
 var ssoConfig = services.SingleSignOn[0]; 
 var client_id = ssoConfig.credentials.clientId;
 var client_secret = ssoConfig.credentials.secret;
@@ -134,11 +134,18 @@ app.get('/home', function(req, res){
 	
 });
 
-app.get('/logout', function(req, res) {
+
+/*pp.get('/logout', function(req, res) {
           //req.logout();
           console.log("*****",req.logout());
-          res.redirect('https://' + issuer_id +'/idaas/logout/logout_success,html');
+          //res.redirect('https://' + issuer_id +'/idaas/logout/');
       });
+*/
+app.get('/logout', function(req, res) {
+        req.logout();
+  res.redirect('https://cmipsso-ald1016-y10rz7i00p-ck11.iam.ibmcloud.com/'+issuer_id +'/idaas/mtfim/sps/idaas/logout');
+      });
+
 
 //app.get('/logout', function(req, res){
 	
@@ -148,13 +155,7 @@ app.get('/logout', function(req, res) {
       });*/
 //
 
-app.get('/logout2', function(req, res) {
-        //  req.logout();
-         console.log("*****",req.logout());
-          res.redirect('https://cmipsso-ald1016-y10rz7i00p-ck11.iam.ibmcloud.com/idaas/mtfim/sps/idaas/logout' + issuer_id +
-                  '/idaas/mtfim/sps/idaas/logout/logout_success');
-      });
-      
+
 //start server on the specified port and binding hostnew
 app.listen(appEnv.port, host, function() {
   // print a message when the server starts listening
