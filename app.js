@@ -108,8 +108,7 @@ function ensureAuthenticated(req, res, next) {
  app.get('/auth/sso/callback',function(req,res,next) {               
              var redirect_url = req.session.originalUrl;                
              passport.authenticate('openidconnect', {
-                     successRedirect:  '/hello', 
-                     //redirect_url,                                
+                     successRedirect: redirect_url,                                
                      failureRedirect: '/failure',                        
           })(req,res,next);
         });
@@ -139,11 +138,12 @@ app.get('/hellos', ensureAuthenticated, function(request, response) {
     request.send('Hello, '+ request.user['id'] + '!\n' + '<a href="/logout">Log Out</a>');
 });*/
 
+/*
 app.get('/logout', function(req, res){
     req.logout();
     res.redirect('/hello');
 });
- 
+ */
  //
  app.get('/failure', function(req, res) { 
              res.send('login failed'); });
