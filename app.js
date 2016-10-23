@@ -102,10 +102,10 @@ function ensureAuthenticated(req, res, next) {
  });
  
  
-app.get('/mytest', function(req, res){
-	    console.log(req.user); 
-	    var uobj=JSON.parse(req.user);
-	   res.send('Hello, '+ uobj.id + '!'); 
+app.get('/mytest',  ensureAuthenticated, function(req, res){
+	    console.log( "---",req.user['id']); 
+	    //var uobj=JSON.parse(req.user);
+	   res.send('Hello, '+  req.user['id'] + '!'); 
 });
       
  //second add line
