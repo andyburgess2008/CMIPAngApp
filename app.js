@@ -140,7 +140,7 @@ app.get('/hellos', ensureAuthenticated, function(request, response) {
 
 app.get('/logout', function(req, res){
     req.logout();
-    res.redirect('/');
+    res.redirect('/hellos');
 });
  
  //
