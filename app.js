@@ -125,6 +125,24 @@ function ensureAuthenticated(req, res, next) {
             
    });
 
+ //i add my code
+ app.get('/auth/sso/callback', function(req, res, next) {               
+    var redirect_url = req.session.originalUrl;                
+    passport.authenticate('openidconnect', {
+        successRedirect: '/hellos',                                
+        failureRedirect: '/failure',                        
+    })(req,res,next);
+});
+
+app.get('/hellos', ensureAuthenticated, function(request, response) {
+    request.send('Hello, '+ request.user['id'] + '!\n' + '<a href="/logout">Log Out</a>');
+});
+
+app.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
+});
+ 
  //
  app.get('/failure', function(req, res) { 
              res.send('login failed'); });
