@@ -102,7 +102,9 @@ function ensureAuthenticated(req, res, next) {
  });
  
  
-       
+app.get('/mytest', function(req, res){
+	   res.send('Hello, '+ req.user['id'] + '!'); 
+});
       
  //second add line
  app.get('/auth/sso/callback',function(req,res,next) {               
