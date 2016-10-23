@@ -117,12 +117,12 @@ function ensureAuthenticated(req, res, next) {
  app.get('/hello', ensureAuthenticated, function(req, res, next) {
              //res.send('Hello, '+ req.user['id'] + '!'); 
              //res.redirect('/login');
-              req.send('Hello, '+ req.user['id'] + '!\n' + '<a href="/logout">Log Out</a>');
+             
              console.log(req.user);
-            /* res.render('mytest', {
+             res.render('mytest', {
              	user : req.user 
              	});
-             	next();*/
+             	next();
             
    });
 
@@ -140,10 +140,10 @@ app.get('/hellos', ensureAuthenticated, function(request, response) {
 });*/
 
 
-app.get('/logout', function(req, res){
+/*app.get('/logout', function(req, res){
     req.logout();
     res.redirect('/hello');
-});
+});*/
  
  //
  app.get('/failure', function(req, res) { 
@@ -155,12 +155,12 @@ app.get('/home', function(req, res){
 });
 
 
-/*pp.get('/logout', function(req, res) {
+app.get('/logout', function(req, res) {
           //req.logout();
           console.log("*****",req.logout());
-          //res.redirect('https://' + issuer_id +'/idaas/logout/');
+          //res.redirect('https://cmipsso-ald1016-y10rz7i00p-ck11.iam.ibmcloud.com' + req.user['id'] +'/idaas/logout/');
       });
-*/
+
 /*
 app.get('/logout', function(req, res) {
         req.logout();
