@@ -108,7 +108,8 @@ function ensureAuthenticated(req, res, next) {
  app.get('/auth/sso/callback',function(req,res,next) {               
              var redirect_url = req.session.originalUrl;                
              passport.authenticate('openidconnect', {
-                     successRedirect: redirect_url,                                
+                     successRedirect:  '/hello', 
+                     //redirect_url,                                
                      failureRedirect: '/failure',                        
           })(req,res,next);
         });
@@ -126,21 +127,21 @@ function ensureAuthenticated(req, res, next) {
    });
 
  //i add my code
- app.get('/auth/sso/callback', function(req, res, next) {               
+ /*app.get('/auth/sso/callback', function(req, res, next) {               
     var redirect_url = req.session.originalUrl;                
     passport.authenticate('openidconnect', {
-        successRedirect: '/hellos',                                
+        successRedirect: '/hello',                                
         failureRedirect: '/failure',                        
     })(req,res,next);
-});
-
+});*/
+/*
 app.get('/hellos', ensureAuthenticated, function(request, response) {
     request.send('Hello, '+ request.user['id'] + '!\n' + '<a href="/logout">Log Out</a>');
-});
+});*/
 
 app.get('/logout', function(req, res){
     req.logout();
-    res.redirect('/hellos');
+    res.redirect('/hello');
 });
  
  //
