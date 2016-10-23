@@ -103,7 +103,9 @@ function ensureAuthenticated(req, res, next) {
  
  
 app.get('/mytest', function(req, res){
-	   res.send('Hello, '+ req.user + '!'); 
+	    console.log(req.user); 
+	    var uobj=JSON.parse(req.user);
+	   res.send('Hello, '+ uobj.id + '!'); 
 });
       
  //second add line
