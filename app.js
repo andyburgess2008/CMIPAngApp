@@ -130,25 +130,12 @@ app.get('/mytest',  ensureAuthenticated, function(req, res){
             
    });
 
- //i add my code
- /*app.get('/auth/sso/callback', function(req, res, next) {               
-    var redirect_url = req.session.originalUrl;                
-    passport.authenticate('openidconnect', {
-        successRedirect: '/hello',                                
-        failureRedirect: '/failure',                        
-    })(req,res,next);
-});*/
 
 app.get('/quite', ensureAuthenticated, function(req, res) {
     res.send('Hello, '+ req.user['id'] + '!\n' + '<a href="/logout">Log Out</a>');
 });
 
 
-/*app.get('/logout', function(req, res){
-    req.logout();
-    res.redirect('/hello');
-});*/
- 
  //
  app.get('/failure', function(req, res) { 
              res.send('login failed'); });
@@ -158,12 +145,12 @@ app.get('/home', function(req, res){
 	
 });
 
-/*
-app.get('/logout', ensureAuthenticated, function(req, res) {
+
+app.get('/exit', ensureAuthenticated, function(req, res) {
           req.logout();
           //console.log("***---**",req.logout());
           res.redirect('https://cmipsso-ald1016-y10rz7i00p-ck11.iam.ibmcloud.com' + req.user['id'] +'/idaas/logout/');
-      });*/
+      });
 
 
 app.get('/logout', ensureAuthenticated, function(req, res) {
