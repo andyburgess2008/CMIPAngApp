@@ -108,11 +108,11 @@ app.get('/mytest',  ensureAuthenticated, function(req, res){
 	   res.send('Hello, '+  req.user['id'] + '!'); 
 });
       
- //second add line
+ //second add line   redirect_url, 
  app.get('/auth/sso/callback',function(req,res,next) {               
              var redirect_url = req.session.originalUrl;                
              passport.authenticate('openidconnect', {
-                     successRedirect: redirect_url,                                
+                     successRedirect: '/hello',                               
                      failureRedirect: '/failure',                        
           })(req,res,next);
         });
