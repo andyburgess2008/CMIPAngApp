@@ -139,8 +139,8 @@ app.get('/mytest',  ensureAuthenticated, function(req, res){
     })(req,res,next);
 });*/
 
-app.get('/quite', ensureAuthenticated, function(request, response) {
-    request.send('Hello, '+ request.user['id'] + '!\n' + '<a href="/logout">Log Out</a>');
+app.get('/quite', ensureAuthenticated, function(req, res) {
+    res.send('Hello, '+ req.user['id'] + '!\n' + '<a href="/logout">Log Out</a>');
 });
 
 
