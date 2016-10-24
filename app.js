@@ -149,7 +149,8 @@ app.get('/home', function(req, res){
 app.get('/exit', ensureAuthenticated, function(req, res) {
           req.logout();
           //console.log("***---**",req.logout());
-          res.redirect('https://cmipsso-ald1016-y10rz7i00p-ck11.iam.ibmcloud.com' + req.user['id'] +'/idaas/logout/');
+          res.redirect('https://cmipsso-ald1016-y10rz7i00p-ck11.iam.ibmcloud.com/idaas/mtfim/sps/idaas/logout/'); 
+          //res.redirect('https://cmipsso-ald1016-y10rz7i00p-ck11.iam.ibmcloud.com' + req.user['id'] +'/idaas/logout/');
       });
 
 
