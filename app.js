@@ -161,23 +161,8 @@ app.get('/logout', ensureAuthenticated, function(req, res) {
       });
 
 
-//app.get('/logout', function(req, res){
-	
- /*    console.log("*****",req.logout());
-              res.send("you have logout successfully");
-                
-      });*/
-//
-
-
 //start server on the specified port and binding hostnew
 app.listen(appEnv.port, host, function() {
   // print a message when the server starts listening
   console.log("server starting on " + appEnv.url);
 });
-/*
-app.listen(appEnv.port, '0.0.0.0', function() {
-  // print a message when the server starts listening
-  console.log("server starting on " + appEnv.url);
-});
-*/
